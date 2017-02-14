@@ -64,7 +64,7 @@ app.get('/iotServiceLink', function(req, res) {
 		org_res.on('end', function() {
 			try {
 				var org = JSON.parse(str);
-				var url = "https://console.ng.bluemix.net/#/resources/serviceGuid=" + org.bluemix.serviceInstanceGuid + "&orgGuid=" + org.bluemix.organizationGuid + "&spaceGuid=" + org.bluemix.spaceGuid;
+					var url = "https://bluemix.net/services/" + org.bluemix.serviceInstanceGuid + "?ace_config=%7B%22orgGuid%22%3A%22" + org.bluemix.organizationGuid + "%22%2C%22spaceGuid%22%3A%22" + org.bluemix.spaceGuid;
 				res.json({ url: url });
 			} catch (e) { console.log("Something went wrong...", str); res.send(500); }
 			console.log("iotServiceLink end: ", str.toString());
