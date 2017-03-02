@@ -14,14 +14,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 var config = null;
 var credentials = null;
 if (process.env.VCAP_SERVICES) {
-	config = JSON.parse(process.env.VCAP_SERVICES);
-
-	var iotService = config['iotf-service'];
-	for (var index in iotService) {
-		if (iotService[index].name === 'discover-iot-try-service') {
-			credentials = iotService[index].credentials;
-		}
-	}
+// Getting started step 4
+// Insert VCAP parsing here.
 } else {
 	console.log("ERROR: IoT Service was not bound!");
 }
